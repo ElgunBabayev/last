@@ -1,0 +1,70 @@
+﻿@model HomeViewModel
+<section id="banner">
+    <div class="owl-carousel">
+        @foreach (Banner item in Model.Banner)
+        {
+            <div class="img">
+                <img src="/img/@item.Img"/>
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="banner-text col-5">
+                        <h5>@item.Subtitle</h5>
+                        <h1>@item.Title</h1>
+                        <p>
+                            @Html.Raw(item.Text)
+                        </p>
+                        <a href='@Url.Action("Index", "Login")' class="buton"><span></span>start exploring</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!-- AUCTION -->
+<section id="auction">
+    <div class="container">
+        <div class="row">
+            <h2 class="sec-heading">live auction</h2>
+            <p class="sec-text col-6">
+                Lorem ipsum, dolor sit amet repudiandae sapiente consectetur
+                adipisicing elit. Nobis repudiandae sapiente enim magni possimus
+                repudiandae sapiente consectetur.
+            </p>
+        </div>
+        <div class="row">
+            @foreach (Product item in Model.Products)
+            { 
+            <div class="auc-item col-4 mb-4">
+                <div class="auc-img">
+                    <img src="/img/@item.Image"
+                         style="width: 100%" />
+                    <div class="cooldown">
+                        <ul data-countdown=@item.EndDate@*ToString("dd.MM.yyyy")*@>
+                            <li data-days="00">00</li>
+                            <li data-hours="00">00</li>
+                            <li data-minuts="00">00</li>
+                            <li data-seconds="00">00</li>
+                        </ul>
+                    </div>
+                    <div class="author-area">
+                        <div class="author-emo">
+                            <img src="~/img/@item.AppUser.ProfilePhoto" />
+                        </div>
+                        <div class="author-name">
+                            <span>by @item.AppUser</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="auc-text">
+                    <h4>@item.Name</h4>
+                    <p class="price">Bidding Price : <span>$@item.Prise</span></p>
+                    <p class="bid"><a href="/Product/@item.Id">Place A Bid</a></p>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="view-all col-4"><a href='@Url.Action("Index", "Product")'>View All</a></div>
+        </div>
+    </div>
+</section>

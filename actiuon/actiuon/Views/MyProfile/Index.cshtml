@@ -1,0 +1,49 @@
+﻿@model AppUser
+<div class="side-text-profile group-wrapper col-9 d-none">
+    <div class="row">
+        <div class="col-6">
+            <div class="personal-inf d-flex">
+                <div class="pers-img col-4">
+                    <img src="~/img/@Model.ProfilePhoto" />
+                </div>
+                <div class="pers-inf d-flex col-8">
+                    <div class="pers-name d-flex">
+                        <p>@Model.FirstName</p>
+                        <p>@Model.LastName</p>
+                    </div>
+                    @*<p class="pers-occ">@Model.Role</p>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-wrap">
+        <form action="">
+            <div class="row d-flex">
+                <div class="col-6">
+                    <div class="form-inner">
+                        <input type="text" placeholder="First Name" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-inner">
+                        <input type="text" placeholder="Last Name" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-inner">
+                        <input type="email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-inner">
+                        <input type="text" placeholder="+994" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-button d-flex">
+                <button type="submit" class="update">Update</button>
+                <button type="submit" class="cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,224 @@
+﻿@model MyDashboardViewModel
+<header>
+    <div class="describe">
+        <h3>Dashboard</h3>
+        <ul class="breadcrumb">
+            <li><a href="../FinalProjectFull/index.html">Home</a></li>
+            <li>Dahsboard</li>
+        </ul>
+    </div>
+</header>
+<section id="dashboard">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="side-btn col-3 d-flex flex-column gap-4">
+                <button class="dashboard" data-filter="side-text-dashboard">Dashboard</button>
+                <button class="dashboard" data-filter="side-text-profile">My Profile</button>
+                <button class="dashboard" data-filter="side-text-picked">Picked Products</button>
+                <button class="dashboard" data-filter="side-text-my-product">My Products</button>
+            </div>
+            <div class="side-text-dashboard group-wrapper d-flex col-9">
+                <div class="col-6 mt-2">
+                    <div class="sold d-flex flex-column">
+                        <div class="sold-header"><h5>My Products</h5></div>
+                        <div class="sold-body"><h4>@Model.Products.Count</h4></div>
+                    </div>
+                </div>
+                <div class="col-6 mt-2">
+                    <div class="sold d-flex flex-column">
+                        <div class="sold-header"><h5>Pending Product</h5></div>
+                        <div class="sold-body"><h4>@Model.Products.Where(x => x.StatusId == 1).Count()</h4></div>
+                    </div>
+                </div>
+                <div class="col-6 mt-2">
+                    <div class="sold d-flex flex-column">
+                        <div class="sold-header"><h5>Picked Product</h5></div>
+                        <div class="sold-body"><h4>@Model.Products.Count</h4></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-text-profile group-wrapper col-9 d-none">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="personal-inf d-flex">
+                            <div class="pers-img col-4">
+                                <img src="~/img/@Model.AppUser.ProfilePhoto" />
+                            </div>
+                            <div class="pers-inf d-flex col-8">
+                                <div class="pers-name d-flex">
+                                    <p>@Model.AppUser.FirstName</p>
+                                    <p>@Model.AppUser.LastName</p>
+                                </div>
+                                <p class="pers-occ">Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-wrap">
+                    <form asp-controller="Product" asp-action="Add" method="post">
+                        <div class="row d-flex">
+                            <div class="col-6">
+                                <div class="form-inner">
+                                    <input type="text" placeholder="First Name" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-inner">
+                                    <input type="text" placeholder="Last Name" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-button d-flex">
+                            <button type="submit" class="update">Update</button>
+                            <button type="submit" class="cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="side-text-my-product group-wrapper col-9 d-none">
+                <div class="row">
+                    <div class="pend-head d-flex">
+                        <div class="pend-title col-4">My Products</div>
+                        <div class="add-prod col-4">
+                            <button type="submit" class="add-prodct">Add product</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Bid Amount(USD)</th>
+                                <th>Session Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product item in Model.Products)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/img/@item.Image" />
+                                    </td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Category.Name</td>
+                                    <td>@item.Prise</td>
+                                    <td>
+                                        <div class="cooldown-intable">
+                                            <ul class="d-flex justify-content-around" style="padding:inherit; margin:0; " data-countdown=@item.EndDate>
+                                                <li data-days="00">00</li>
+                                                <li data-hours="00">00</li>
+                                                <li data-minuts="00">00</li>
+                                                <li data-seconds="00">00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                   <td class="text-warning">Pending</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="side-text-picked group-wrapper col-9 d-none">
+                <div class="row">
+                    <div class="pend-head d-flex jusify-content-start">
+                        <div class="pend-title col-4">Picked Product</div>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Min.Price(USD)</th>
+                                <th>Session Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product item in Model.Products)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/img/@item.Image" />
+                                    </td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Category.Name</td>
+                                    <td>@item.Prise</td>
+                                    <td>
+                                        <div class="cooldown-intable">
+                                            <ul class="d-flex justify-content-around" style="padding:inherit; margin:0; " data-countdown=@item.EndDate>
+                                                <li data-days="00">00</li>
+                                                <li data-hours="00">00</li>
+                                                <li data-minuts="00">00</li>
+                                                <li data-seconds="00">00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="/Product/@item.Id">Peace Bid</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-prod-modal d-flex d-none">
+        <div class="modal-p col-6">
+            <form method="post" action="@Url.Action("Add", "Product")" enctype="multipart/form-data">
+                <div class="row d-flex">
+                    <div class="col-5">
+                        <div class="modal-pic">
+                            <input class="spec form-control" placeholder="ProdImg" asp-for="ProdImg">
+                            <span class="small text-danger" asp-validation-for="ProdImg"></span>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="modal-info d-flex mt-4">
+                            <div class="modal-inner col-9 ms-5">
+                                <input type="text" placeholder="Product name" name="Name" />
+                            </div>
+                            <div class="modal-inner col-9 ms-5">
+                                <input type="text" placeholder="Min. price" name="Prise" />
+                            </div>
+                            <div class="modal-inner col-6 ms-5">
+                                <select name="CategoryId" id="modal-cate" class="w-100">
+                                    @foreach (Category item in Model.Categories)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="modal-inner col-6 ms-5">
+                                <label>Session Date</label>
+                                <input name="EndDate" type="date" id="session-time" />
+                            </div>
+                            <div class="submit-prod col-9 d-flex ms-5">
+                                <button type="submit" class="sub-but">
+                                    Submit Product
+                                </button>
+                                <a href="#" class="canc-but close-add-prod-modal">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- <div style="height: 100vh"></div> -->

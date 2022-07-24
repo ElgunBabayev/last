@@ -1,0 +1,62 @@
+﻿@model List<Product>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>ProductName</th>
+                        <th>Category</th>
+                        <th>Min.Price</th>
+                        <th>SessionTime</th>
+                        <th>Status</th>
+                        <th>Settings</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (Product item in Model)
+                    {
+                        <tr>
+                            <td>@item.AppUser</td>
+                            <td>@item.Name</td>
+                            <td>@item.CategoryId</td>
+                            <td>@item.Prise</td>
+                            <td>@item.EndDate</td>
+                            @if (item.StatusId == 1)
+                            {
+                                <td class="text-warning">Pending</td>
+                            }
+                            else
+                            {
+                                <td class="text-success">Approved</td>
+                            }
+                            <td>
+                                @if (item.StatusId == 1)
+                                {
+                                    <a asp-action="ChangeStatus" asp-route-id="@item.Id" class="btn btn-success">Approved</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="ChangeStatus" asp-route-id="@item.Id" class="btn btn-danger">Reject</a>
+                                }
+                                @*<a asp-action="ChangePassword" asp-route-id="@item.Id" class="btn btn-info">ChangePassword</a>*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/admin/js/demo/datatables-demo.js"></script>
+}
+

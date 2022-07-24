@@ -1,0 +1,61 @@
+﻿@model Banner
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add Banner</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Add" method="post" enctype="multipart/form-data">
+            <div class="row d-flex flex-column">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Subtitle"></label>
+                    <input type="text" class="form-control" asp-for="Subtitle">
+                    <span class="text-danger small" asp-validation-for="Subtitle"></span>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Title"></label>
+                    <input type="text" class="form-control" asp-for="Title">
+                    <span class="text-danger small" asp-validation-for="Title"></span>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Image"></label>
+                    <div class="custom-file">
+                        <input accept="image/*" class="custom-file-input" asp-for="Image">
+                        <label class="custom-file-label">Choose file...</label>
+                        <span class="text-danger small" asp-validation-for="Image"></span>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <label asp-for="Text"></label>
+                    <textarea class="form-control" cols="30" rows="10" asp-for="Text"></textarea>
+                    <span class="text-danger small" asp-validation-for="Text"></span>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+            integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"
+            integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Text'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <style>
+        .ck-editor__editable {
+            min-height: 150px;
+        }
+    </style>
+}

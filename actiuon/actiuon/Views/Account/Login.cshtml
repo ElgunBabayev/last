@@ -1,0 +1,32 @@
+﻿
+@model LoginViewModel
+<header>
+    <div class="describe">
+        <h3>Log In</h3>
+        <ul class="breadcrumb">
+            <li><a href="../FinalProjectFull/index.html">Home</a></li>
+            <li>Log In</li>
+        </ul>
+    </div>
+</header>
+<section id="login">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="signup-content col-4">
+                <h2>Log In</h2>
+                <p>New Member? <a href='@Url.Action("Register", "Account")'>Sign Up Here</a></p>
+                <div class="small text-danger" asp-validation-summary="ModelOnly"></div>
+                <form method="post" class="d-flex flex-wrap">
+                    <input class="spec1 col-5" placeholder="Email" asp-for="Email">
+                    <span class="small text-danger" asp-validation-for="Email"></span>
+                    <input class="spec col-5" placeholder="Password" asp-for="Password">
+                    <span class="small text-danger" asp-validation-for="Password"></span>
+                    <a href="../FinalProjectFull/forgot-password.html" class="forgot-pass">Forget Password ?</a>
+                    <button type="submit" class="create-acc  col-12">LOG IN</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

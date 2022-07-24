@@ -1,0 +1,236 @@
+﻿@model Product
+<header>
+    <div class="describe">
+        <h3>Auction Details</h3>
+        <ul class="breadcrumb">
+            <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+            <li>Auctions Details</li>
+        </ul>
+    </div>
+</header>
+<section id="product">
+    <div class="container">
+        <div class="row">
+            <div class="prod-img col-6">
+                <img src="~/img/@Model.Image"/>
+                <div class="cooldown">
+                    <ul data-countdown="@Model.EndDate">
+                        <li data-days="00">00</li>
+                        <li data-hours="00">00</li>
+                        <li data-minuts="00">00</li>
+                        <li data-seconds="00">00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bid-prod col-6">
+                <h2>@Model.Name</h2>
+                <p>
+                    If you’ve been following the crypto space, you’ve likely heard
+                    of Non-Fungible Tokens (Biddings), more popularly referred to as
+                    ‘Crypto Collectibles.’ The world of Biddings is growing rapidly.
+                </p>
+                <p class="bid-now">Bidding Price: <span>$@Model.Prise</span></p>
+                <div class="bid-form">
+                    <p>Bid Now</p>
+                    <p>Bid Amount: Minimum Bid $@Model.Prise</p>
+                    <input type="text" placeholder="$00.00" />
+                    <button type="submit">Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="desrciption" style="padding: 0px 0px 100px 0px; margin: 0px 0px 100px 0px;">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="tabs col-8">
+                <div class="row">
+                    <ul class="btn-s d-flex gap-4">
+                        <li data-filter="tab-describ">Description</li>
+                        <li data-filter="tab-b-history">Biding History</li>
+                        <li data-filter="tab-other-auc">Other Auction</li>
+                    </ul>
+                </div>
+                <div class="tab-describ group-wrapper mt-4">
+                    <h3>How can have anything you ant in life if you ?</h3>
+                    <p>
+                        If you’ve been following the crypto space, you’ve likely heard
+                        of Non-Fungible Tokens (Biddings), more popularly referred to as
+                        ‘Crypto Collectibles.’ The world of Biddings is growing rapidly.
+                    </p>
+                    <a href="">
+                        Amet consectetur adipisicing elit. Maxime reprehenderit
+                        quaerat, velit rem atque vel impedit! Expensive Design.
+                    </a>                   
+                </div>
+                <div class="tab-b-history group-wrapper d-none mt-4">
+                    <div class="bid-list-area">
+                        <ul class="bid-list">
+                            <li>
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-7">
+                                        <div class="bidder-area">
+                                            <div class="bidder-img">
+                                                <img src="~/img/bidder-3.png" />
+                                            </div>
+                                            <div class="bidder-content">
+                                                <a href="#"><h6>Robart FOX</h6></a>
+                                                <p>$250.50</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-end">
+                                        <div class="bid-time">
+                                            <p>4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-7">
+                                        <div class="bidder-area">
+                                            <div class="bidder-img">
+                                                <img src="~/img/bidder-1.png" />
+                                            </div>
+                                            <div class="bidder-content">
+                                                <a href="#"><h6>Jane Cooper</h6></a>
+                                                <p>$224.5</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-end">
+                                        <div class="bid-time">
+                                            <p>5 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-7">
+                                        <div class="bidder-area">
+                                            <div class="bidder-img">
+                                                <img src="~/img/bidder-3.png" />
+                                            </div>
+                                            <div class="bidder-content">
+                                                <a href="#"><h6>Guy Hawkins</h6></a>
+                                                <p>$34.5</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-end">
+                                        <div class="bid-time">
+                                            <p>6 Hours 45 minutes Ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-7">
+                                        <div class="bidder-area">
+                                            <div class="bidder-img">
+                                                <img src="~/img/bidder-1.png" />
+                                            </div>
+                                            <div class="bidder-content">
+                                                <a href="#"><h6>Robart FOX</h6></a>
+                                                <p>$24.50</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-end">
+                                        <div class="bid-time">
+                                            <p>4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-7">
+                                        <div class="bidder-area">
+                                            <div class="bidder-img">
+                                                <img src="~/img/bidder-2.png" />
+                                            </div>
+                                            <div class="bidder-content">
+                                                <a href="#"><h6>Robart FOX</h6></a>
+                                                <p>$21.50</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-end">
+                                        <div class="bid-time">
+                                            <p>4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-other-auc group-wrapper d-none mt-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="auc-item mb-4">
+                                <div class="auc-img">
+                                    <img src="~/img/@Model.Image"
+                                         style="width: 100%" />
+                                    <div class="cooldown">
+                                        <ul data-countdown="@Model.EndDate">
+                                            <li data-days="00">00</li>
+                                            <li data-hours="00">00</li>
+                                            <li data-minuts="00">00</li>
+                                            <li data-seconds="00">00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="auc-text">
+                                    <h4>@Model.Name</h4>
+                                    <p class="price">
+                                        Bidding Price : <span class="quantity">@Model.Prise</span>
+                                    </p>
+                                    <p class="bid"><a href="#">Place A Bid</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="auc-item mb-4">
+                                <div class="auc-img">
+                                    <img src="~/img/@Model.Image"
+                                         style="width: 100%" />
+                                    <div class="cooldown">
+                                        <ul data-countdown="@Model.EndDate">
+                                            <li data-days="00">00</li>
+                                            <li data-hours="00">00</li>
+                                            <li data-minuts="00">00</li>
+                                            <li data-seconds="00">00</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="auc-text">
+                                    <h4>@Model.Name</h4>
+                                    <p class="price">
+                                        Bidding Price : <span class="quantity">$@Model.Prise</span>
+                                    </p>
+                                    <p class="bid"><a href="#">Place A Bid</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 g-0">
+                <div class="describ-img">
+                    <img src="~/img/motorbike-2.avif" />
+                    <div class="tint"></div>
+                    <div class="describ-text">
+                        <h3>Motorbike</h3>
+                        <p>Brand New royal Enfield 250 CC For Sale</p>
+                        <a href='@Url.Action("Index", "Product")'>Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

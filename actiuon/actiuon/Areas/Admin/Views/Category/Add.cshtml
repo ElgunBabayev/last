@@ -1,0 +1,30 @@
+﻿@model Category
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add Category</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Add" method="post">
+            <div class="row d-flex flex-column">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Name"></label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <span class="text-danger small" asp-validation-for="Name"></span>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" 
+            integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" 
+    integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+}
